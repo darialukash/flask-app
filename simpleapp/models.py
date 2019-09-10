@@ -2,7 +2,7 @@ from simpleapp import db
 
 
 class Person(db.Model):
-    __tablename__ = "person"
+    #__tablename__ = "person"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text(), nullable=False)
     age = db.Column(db.Integer, nullable=False)

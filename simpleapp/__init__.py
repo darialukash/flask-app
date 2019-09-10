@@ -25,4 +25,6 @@ def create_app():
 
     from . import models
 
+    #db.create_all()
+
     return app
