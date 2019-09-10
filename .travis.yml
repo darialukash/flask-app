@@ -1,6 +1,7 @@
 language: python
 dist: bionic
-
+env:
+  - FLASK_APP=simpleapp
 install:
   - pip install -r requirements.txt
 
