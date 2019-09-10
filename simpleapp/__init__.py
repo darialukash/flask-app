@@ -1,5 +1,28 @@
+import os
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
-app = Flask(__name__)
+db = SQLAlchemy()
+migrate = Migrate()
 
-import simpleapp.hello
+
+def create_app():
+    app = Flask(__name__)
+    app.config.from_mapping(
+        SECRET_KEY=os.environ.get('SECRET_KEY') or 'dev_key',
+        SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL') or \
+                                'sqlite:///' + os.path.join(app.instance_path, 'person_list.sqlite'),
+        SQLALCHEMY_TRACK_MODIFICATIONS=False
+    )
+
+    db.init_app(app)
+    migrate.init_app(app, db)
+
+    @app.route('/')
+    def index():
+        return 'Hello World!'
+
+    from . import models
+
+    return app

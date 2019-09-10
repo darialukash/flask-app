@@ -5,7 +5,7 @@ install:
   - pip install -r requirements.txt
 
 env:
-  - FLASK_APP=simpleapp.py FLASK_ENV=development
+  - FLASK_APP=simpleapp.py
 
 script:
   - set
