@@ -4,6 +4,18 @@ import os
 from simpleapp import create_app, db
 import simpleapp.models as model
 
+POSTGRES_USER = os.environ.get("TESTING_POSTGRES_USER")
+POSTGRES_PW = os.environ.get("TESTING_POSTGRES_PW")
+POSTGRES_URL = os.environ.get("TESTING_POSTGRES_URL")
+POSTGRES_DB = os.environ.get("TESTING_POSTGRES_DB")
+
+
+def create_db_url(user, pw, url, db):
+    return f"postgresql://{user}:{pw}@{url}/{db}"
+
+
+DATABASE_TEST_URL = create_db_url(POSTGRES_USER, POSTGRES_PW, POSTGRES_URL, POSTGRES_DB)
+
 
 @pytest.fixture
 def app():
