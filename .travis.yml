@@ -1,14 +1,18 @@
 language: python
 dist: bionic
 
+addons:
+  postgresql: "9.5"
+services:
+  - postgresql
+
 install:
   - pip install -r requirements.txt
 
-env:
-  - FLASK_APP=simpleapp.py
-
+before_script:
+  - psql -c 'create database mydatabase;' -U postgres
 script:
-  - flask run
+  - pytest
 
 deploy:
   provider: heroku
