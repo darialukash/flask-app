@@ -2,13 +2,13 @@ from simpleapp import db
 
 
 class Person(db.Model):
-    #__tablename__ = "person"
+    __tablename__ = "person"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text(), nullable=False)
     age = db.Column(db.Integer, nullable=False)
 
-    #def __repr__(self):
-     #   return '<Person: {}>'.format(self.name)
+    def __repr__(self):
+        return '<Person: {}>'.format(self.name)
 
     def save(self):
         db.session.add(self)
