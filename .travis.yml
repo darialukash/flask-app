@@ -1,0 +1,16 @@
+language: python
+dist: bionic
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - flask run
+
+deploy:
+  provider: heroku
+  api_key: 00a74004-6a75-4429-8e93-beb71f247613
+  app: flask-app-rsoi
+
+notifications:
+  email: false
