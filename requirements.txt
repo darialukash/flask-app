@@ -4,5 +4,4 @@ gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
--e git+https://github.com/darialukash/flask-app.git@9db5aec7f6a7fe594c16f1599afaaa68ce14cb34#egg=simpleapp
 Werkzeug==0.15.6

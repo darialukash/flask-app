@@ -4,8 +4,15 @@ dist: bionic
 install:
   - pip install -r requirements.txt
 
+env:
+  - DB=postgres
+  - SH=bash
+  - PACKAGE_VERSION="1.0.*"
+  - FLASK_APP=simpleapp.py
+  - FLASK_ENV=development
+
 script:
-  - set FLASK_APP=simpleapp.py
+  - set
   - flask run
 
 deploy:
