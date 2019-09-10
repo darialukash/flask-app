@@ -12,5 +12,11 @@ def test():
     pytest.main(["-s", "tests"])
 
 
+@manager.command
+def deploy():
+    """Runs app."""
+    app.run()
+
+
 if __name__ == "__main__":
     manager.run()
