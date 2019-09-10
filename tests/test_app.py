@@ -36,7 +36,7 @@ def test_index(app):
 
 
 def test_db(app):
-    with app.test_request_context() as context:
+    with app.app_context() as context:
         context.push()
         db.drop_all()
         db.create_all()
