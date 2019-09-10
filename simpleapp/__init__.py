@@ -25,6 +25,8 @@ def create_app():
 
     from . import models
 
-    #db.create_all()
+    with app.app_context() as context:
+        context.push()
+        db.create_all()
 
     return app

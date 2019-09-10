@@ -7,8 +7,8 @@ class Person(db.Model):
     name = db.Column(db.Text(), nullable=False)
     age = db.Column(db.Integer, nullable=False)
 
-    def __repr__(self):
-        return '<Person: {}>'.format(self.name)
+    #def __repr__(self):
+     #   return '<Person: {}>'.format(self.name)
 
     def save(self):
         db.session.add(self)
