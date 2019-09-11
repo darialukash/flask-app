@@ -34,3 +34,4 @@ class ConfProd(object):
     DEBUG = False
     TESTING = False
     SQLALCHEMY_DATABASE_URI = DATABASE_PROD_URL
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
