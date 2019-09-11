@@ -27,6 +27,7 @@ class ConfTest(object):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = DATABASE_TEST_URL
     PRESERVE_CONTEXT_ON_EXCEPTION = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ConfProd(object):
