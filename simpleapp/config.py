@@ -32,6 +32,7 @@ class ConfTest(object):
 
 class ConfProd(object):
     DATABASE_PROD_URL = os.environ.get('DATABASE_URL')
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev_key'
     DEBUG = False
     TESTING = False
     SQLALCHEMY_DATABASE_URI = DATABASE_PROD_URL
