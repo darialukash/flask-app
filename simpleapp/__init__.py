@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -11,8 +10,6 @@ migrate = Migrate()
 def create_app(configure=ConfProd):
     app = Flask(__name__)
     app.config.from_object(configure)
-    # app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev_key'
-
     db.init_app(app)
     migrate.init_app(app, db)
 

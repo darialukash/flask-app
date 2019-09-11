@@ -18,13 +18,6 @@ def test_test_conf(app):
     assert not app.config['PRESERVE_CONTEXT_ON_EXCEPTION']
 
 
-# def test_dev_conf(app):
-#    app.config.from_object(ConfDev)
-#    assert app.config['DEBUG']
-#    assert app.config['SQLALCHEMY_DATABASE_URI']
-#    assert app.config['TESTING']
-#    assert not app.config['PRESERVE_CONTEXT_ON_EXCEPTION']
-
 def test_index(app):
     client = app.test_client()
     response = client.get('/')
