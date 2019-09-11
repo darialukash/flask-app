@@ -6,8 +6,7 @@ from simpleapp.config import ConfTest, ConfDev
 
 @pytest.fixture
 def app():
-    app = create_app()
-    app.config.from_object(ConfTest)
+    app = create_app(configure=ConfTest)
     return app
 
 

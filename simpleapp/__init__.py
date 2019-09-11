@@ -2,15 +2,15 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from simpleapp import config
+from simpleapp.config import ConfProd
 
 db = SQLAlchemy()
 migrate = Migrate()
 
 
-def create_app():
+def create_app(configure=ConfProd):
     app = Flask(__name__)
-    app.config.from_object(config.ConfProd) or app.config.from_object(config.ConfTest)
+    app.config.from_object(configure)
     # app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev_key'
 
     db.init_app(app)
