@@ -2,31 +2,31 @@ import pytest
 import os
 
 from simpleapp import create_app, db
+from simpleapp.config import ConfTest, ConfDev
 import simpleapp.models as model
-
-POSTGRES_USER = os.environ.get("TESTING_POSTGRES_USER")
-POSTGRES_PW = os.environ.get("TESTING_POSTGRES_PW")
-POSTGRES_URL = os.environ.get("TESTING_POSTGRES_URL")
-POSTGRES_DB = os.environ.get("TESTING_POSTGRES_DB")
-
-
-def create_db_url(user, pw, url, db):
-    return f"postgresql://{user}:{pw}@{url}/{db}"
-
-
-DATABASE_TEST_URL = create_db_url(POSTGRES_USER, POSTGRES_PW, POSTGRES_URL, POSTGRES_DB)
 
 
 @pytest.fixture
 def app():
     app = create_app()
-    app.config['TESTING'] = True
-    app.config['DEBUG'] = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_TEST_URL') or \
-                                            'postgresql://postgres:postgres@localhost/flaskdb'
-    app.config['PRESERVE_CONTEXT_ON_EXCEPTION'] = False
+    app.config.from_object(ConfTest)
     return app
 
+
+def test_test_conf(app):
+    app.config.from_object(ConfTest)
+    assert app.config['DEBUG']
+    assert app.config['SQLALCHEMY_DATABASE_URI'] == os.environ.get('DATABASE_TEST_URL')
+    assert app.config['TESTING']
+    assert not app.config['PRESERVE_CONTEXT_ON_EXCEPTION']
+
+
+# def test_dev_conf(app):
+#    app.config.from_object(ConfDev)
+#    assert app.config['DEBUG']
+#    assert app.config['SQLALCHEMY_DATABASE_URI'] #== os.environ.get('DATABASE_DEV_URL')
+#    assert app.config['TESTING']
+#    assert not app.config['PRESERVE_CONTEXT_ON_EXCEPTION']
 
 def test_index(app):
     client = app.test_client()
