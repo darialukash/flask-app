@@ -1,9 +1,7 @@
 import pytest
-import os
 
 from simpleapp import create_app, db
 from simpleapp.config import ConfTest, ConfDev
-import simpleapp.models as model
 
 
 @pytest.fixture
@@ -24,7 +22,7 @@ def test_test_conf(app):
 # def test_dev_conf(app):
 #    app.config.from_object(ConfDev)
 #    assert app.config['DEBUG']
-#    assert app.config['SQLALCHEMY_DATABASE_URI'] #== os.environ.get('DATABASE_DEV_URL')
+#    assert app.config['SQLALCHEMY_DATABASE_URI']
 #    assert app.config['TESTING']
 #    assert not app.config['PRESERVE_CONTEXT_ON_EXCEPTION']
 

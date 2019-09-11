@@ -10,7 +10,7 @@ migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(config.ConfProd)
+    app.config.from_object(config.ConfProd) or app.config.from_object(config.ConfTest)
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'dev_key'
     # .from_mapping(
     #  SECRET_KEY=os.environ.get('SECRET_KEY') or 'dev_key',
