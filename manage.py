@@ -1,9 +1,9 @@
 import pytest
 from flask_script import Manager
 from simpleapp import create_app
-from simpleapp.config import ConfTest
+from simpleapp.config import ConfTest, ConfDev
 
-app = create_app(configure=ConfTest)
+app = create_app(configure=ConfDev)
 manager = Manager(app)
 
 
