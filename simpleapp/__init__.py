@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, escape
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from simpleapp.config import ConfProd, ConfDev
@@ -15,7 +15,9 @@ def create_app(configure=ConfDev):
 
     @app.route('/')
     def index():
-        return 'Hello World!'
+        name = request.args.get("name", "World")
+        return f'Hello, {escape(name)}!'
+        #return 'Hello World!'
 
     from . import models
     from .models import Person
