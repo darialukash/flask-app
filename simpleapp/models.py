@@ -7,6 +7,10 @@ class Person(db.Model):
     name = db.Column(db.Text(), nullable=False)
     age = db.Column(db.Integer, nullable=False)
 
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
     def __repr__(self):
         return '<Person: {}>'.format(self.name)
 

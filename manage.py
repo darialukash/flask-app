@@ -3,7 +3,7 @@ from flask_script import Manager
 from simpleapp import create_app
 from simpleapp.config import ConfTest, ConfDev
 
-app = create_app(configure=ConfDev)
+app = create_app()
 manager = Manager(app)
 
 
