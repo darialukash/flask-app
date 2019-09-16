@@ -33,8 +33,7 @@ def create_app(configure=ConfProd):
         def examlpe():
 
             if request.method == "GET":
-                content = {{'Persons in DB': len(db.session.query(Person).all())},
-                           {'Last added person': db.session.query(Person)[-1]}}
+                content = {'Persons in DB': len(db.session.query(Person).all())}
                 return content
             elif request.method == "POST":
                 try:
