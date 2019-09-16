@@ -2,8 +2,7 @@ import pytest
 from flask_script import Manager
 from simpleapp import create_app
 
-app = create_app()
-manager = Manager(app)
+manager = Manager(create_app)
 
 
 @manager.command
