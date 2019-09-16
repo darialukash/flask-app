@@ -12,7 +12,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 
-def create_app(configure=ConfDev):
+def create_app(configure=ConfProd):
     app = FlaskAPI(__name__)
     app.config.from_object(configure)
     db.init_app(app)
