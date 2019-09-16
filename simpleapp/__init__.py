@@ -7,7 +7,6 @@ from flask_migrate import Migrate
 
 from simpleapp.config import ConfProd, ConfDev
 
-
 db = SQLAlchemy()
 migrate = Migrate()
 
@@ -34,7 +33,8 @@ def create_app(configure=ConfProd):
         def examlpe():
 
             if request.method == "GET":
-                content = {'Persons in DB': len(db.session.query(Person).all())}
+                content = {{'Persons in DB': len(db.session.query(Person).all())},
+                           {'Last added person': db.session.query(Person)[-1]}}
                 return content
             elif request.method == "POST":
                 try:
