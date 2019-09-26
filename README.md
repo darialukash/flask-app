@@ -8,6 +8,10 @@ Github -> Travic CI -> Heroku
 
 - https://flask-app-rsoi.herokuapp.com/
 
+#### DB API:
+
+- https://flask-app-rsoi.herokuapp.com/database   
+
 
 #### local database
 
