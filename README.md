@@ -1,4 +1,4 @@
-### flask-app
+### flask-app [![Build Status](https://travis-ci.org/darialukash/flask-app.svg?branch=master)](https://travis-ci.org/darialukash/flask-app)
 
 Лабораторные работы по РСОИ (распределенные системы обработки информации)
 
